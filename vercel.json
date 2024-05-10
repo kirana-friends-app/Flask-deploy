@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/app.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "50mb" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/app.py"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/public/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/public/index.html"
+      }
+    ],
+    "env": {
+      "GOOGLE_MAPS_API_KEY": "sk-proj-nFFMFMXIYNPJKV7xlXo5T3BlbkFJiMBPmerHZN9IUGlG8kEW",
+      "OPENAI_API_KEY": "AIzaSyBVvZ6VMHasrMrspVFB7LwUNkzVeOBqg1U"
+    }
+  }
+  
